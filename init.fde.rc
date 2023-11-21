@@ -1,0 +1,13 @@
+on early-init
+    write /proc/sys/kernel/pid_max 65535
+    setprop persist.sys.timezone Asia/Shanghai
+    setprop persist.sys.locale zh-Hans-CN
+    chmod a+wr /dev/ion
+on zygote-start
+     # Create the directories used by the Wireless subsystem
+     mkdir /data/vendor/wifi 0771 wifi wifi
+     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+on post-fs-data
+    rm /data/misc/apexdata/com.android.tethering/misc/ethernet/ipconfig.txt
+    exec - system system -- /vendor/bin/ipconfigstore
