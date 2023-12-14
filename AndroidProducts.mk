@@ -13,6 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Add compile options for x100 GPU 
+# Add x100 related files(bin,so,xml...)
+#
 
 VENDOR_NAME := aosp
 ifneq ("$(wildcard vendor/lineage/*)","")
@@ -20,9 +23,11 @@ ifneq ("$(wildcard vendor/lineage/*)","")
 endif
 
 PRODUCT_MAKEFILES := \
-    $(VENDOR_NAME)_fde_arm64:$(LOCAL_DIR)/fde_arm64/$(VENDOR_NAME)_fde_arm64.mk
+    $(VENDOR_NAME)_fde_arm64:$(LOCAL_DIR)/fde_arm64/$(VENDOR_NAME)_fde_arm64.mk \
+    $(VENDOR_NAME)_x100_arm64:$(LOCAL_DIR)/x100/$(VENDOR_NAME)_x100_arm64.mk
 
 COMMON_LUNCH_CHOICES := \
     $(VENDOR_NAME)_fde_arm64-user \
     $(VENDOR_NAME)_fde_arm64-userdebug \
-    $(VENDOR_NAME)_fde_arm64-eng
+    $(VENDOR_NAME)_fde_arm64-eng \
+    $(VENDOR_NAME)_x100_arm64-userdebug
