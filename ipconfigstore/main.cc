@@ -74,9 +74,7 @@ static int get_conf(std::vector<struct ipconfig> &conf) {
 
     while (ifAddrStruct != NULL) {
         struct ipconfig tmpconf;
-        if ((GetIntProperty("persist.fde.e", 0) || !strncmp(ifAddrStruct->ifa_name, "en", 2)
-             || !strncmp(ifAddrStruct->ifa_name, "wl", 2)
-             || !strncmp(ifAddrStruct->ifa_name, "usb", 3))
+        if ((GetIntProperty("persist.fde.e", 0) || !strncmp(ifAddrStruct->ifa_name, "en", 2))
              && ifAddrStruct->ifa_addr && (ifAddrStruct->ifa_addr->sa_family == AF_INET)
              && (get_gateway(ifAddrStruct->ifa_name, tmpconf.gateway) == 0)) {
             tmpAddrPtr =& ((struct sockaddr_in *)ifAddrStruct->ifa_addr)->sin_addr;
