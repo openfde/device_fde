@@ -78,6 +78,7 @@ $(foreach bin,$(bins_bin),\
 
 $(eval $(call define-openfde-prebuilt-bin,android.hardware.graphics.allocator@4.0-service,hw/android.hardware.graphics.allocator@4.0-service,hw))
 $(shell cp $(LOCAL_PATH)/etc/init/android.hardware.sensors@1.0-service.rc $(PRODUCT_OUT)/vendor/etc/init)
+$(shell cp $(LOCAL_PATH)/etc/powervr.ini $(PRODUCT_OUT)/vendor/etc/powervr.ini)
 $(shell cp $(LOCAL_PATH)/etc/vintf/manifest/android.hardware.graphics.allocator@4.0.img.xml $(PRODUCT_OUT)/vendor/etc/vintf/manifest)
 $(shell cp $(LOCAL_PATH)/etc/vintf/manifest/android.hardware.graphics.mapper@4.0-passthrough.img.xml $(PRODUCT_OUT)/vendor/etc/vintf/manifest)
 endif
