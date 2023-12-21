@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+#
+# 1.set log level to warnings when buid user version.
+#
+
 # Inherit from aosp products.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
@@ -215,6 +219,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     wpa_supplicant
+
+ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
+endif
 
 PRODUCT_CHARACTERISTICS := tablet
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
