@@ -13,8 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Add compile options for x100 GPU 
-# Add x100 related files(bin,so,xml...)
+# 1.Add compile options for x100 GPU
+# 2.Add x100 related files(bin,so,xml...)
+# 3.x100 add user version
 #
 
 VENDOR_NAME := aosp
@@ -30,4 +31,5 @@ COMMON_LUNCH_CHOICES := \
     $(VENDOR_NAME)_fde_arm64-user \
     $(VENDOR_NAME)_fde_arm64-userdebug \
     $(VENDOR_NAME)_fde_arm64-eng \
-    $(VENDOR_NAME)_x100_arm64-userdebug
+    $(VENDOR_NAME)_x100_arm64-userdebug \
+    $(VENDOR_NAME)_x100_arm64-user
