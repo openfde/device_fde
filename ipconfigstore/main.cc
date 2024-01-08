@@ -23,14 +23,14 @@
 #include <log/log.h>
 #include <cutils/properties.h>
 using namespace android::base;
-
+#define USE_HOST_BINDER
 struct ipconfig {
     char ifa_name[24];
     uint32_t mask;
     char ipv4[16];
     char gateway[16];
 };
-
+#ifndef USE_HOST_BINDER
 static int get_gateway(char *dev, char *gateway) {
     FILE *fp;
     char buf[256]; // 128 is enough for linux
@@ -61,8 +61,12 @@ static int bitcount(uint32_t n)
     }
     return count;
 }
-
+#endif
 static int get_conf(std::vector<struct ipconfig> &conf) {
+#ifdef USE_HOST_BINDER
+    (void)conf;
+    return 0;
+#else
     struct ifaddrs *ifAddrStruct = NULL;
     struct ifaddrs *ifAddrStructHead = NULL;
     void *tmpAddrPtr = NULL;
@@ -93,8 +97,9 @@ static int get_conf(std::vector<struct ipconfig> &conf) {
         freeifaddrs(ifAddrStruct);
     }
     return ret;
+#endif
 }
-
+#ifndef USE_HOST_BINDER
 static void write_dns(FILE *fp) {
     std::set<std::string> dnsList;
     auto ndns = GetIntProperty("ro.boot.fde_net_ndns", 0);
@@ -137,10 +142,12 @@ static void write_proxy(FILE *fp) {
         // ignored
     }
 }
-
+#endif
 static int write_conf(std::vector<struct ipconfig> &conf) {
     FILE *fp = fopen("/data/misc/ethernet/ipconfig.txt", "w+");
-
+#ifdef USE_HOST_BINDER
+    (void)conf;
+#else
     writePackedUInt32(3, fp); // version
     for (auto i : conf) {
         writePackedString("ipAssignment", fp);
@@ -166,7 +173,7 @@ static int write_conf(std::vector<struct ipconfig> &conf) {
 
         writePackedString("eos", fp);
     }
-
+#endif
 
     fclose(fp);
     return 0;
