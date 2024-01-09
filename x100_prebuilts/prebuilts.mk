@@ -54,5 +54,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/firmware/rgx.fw.30.3.816.20:$(TARGET_COPY_OUT_VENDOR)/firmware/rgx.fw.30.3.816.20 \
 	$(LOCAL_PATH)/firmware/rgx.sh.30.3.816.20:$(TARGET_COPY_OUT_VENDOR)/firmware/rgx.sh.30.3.816.20 \
-	$(LOCAL_PATH)/etc/init/android.hardware.graphics.allocator@4.0-service.img.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@4.0-service.img.rc
+	$(LOCAL_PATH)/etc/powervr.ini:$(TARGET_COPY_OUT_VENDOR)/etc/powervr.ini
 endif
