@@ -202,6 +202,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FdeVncClient
 
+PRODUCT_PACKAGES += \
+    FdeGallery	
+
 #FDE
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc
