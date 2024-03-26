@@ -41,4 +41,5 @@ ro.lmk.use_minfree_levels=true
 fde.fake_bluetooth_mac=1
 fde.fake_sim_info=1
 fde.fake_wifi_mac=1
+ro.sf.lcd_density=160
 #keep this row to row end
