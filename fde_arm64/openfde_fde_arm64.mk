@@ -24,4 +24,4 @@ PRODUCT_BRAND := fde
 PRODUCT_DEVICE := fde_arm64
 PRODUCT_MANUFACTURER := fde
 PRODUCT_NAME := openfde_fde_arm64
-PRODUCT_MODEL := Openfde arm64 Device
+PRODUCT_MODEL := OpenFDE arm64 Device
