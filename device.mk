@@ -226,6 +226,18 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     wpa_supplicant
 
+#gps
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-service \
+    android.hardware.gnss@1.0-impl \
+    gps.open_fde
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gps=open_fde
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.json:$(TARGET_COPY_OUT_VENDOR)/etc/config/gps.json
+
 ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
 endif
