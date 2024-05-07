@@ -235,8 +235,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gps=open_fde
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.json:$(TARGET_COPY_OUT_VENDOR)/etc/config/gps.json
 
 ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
