@@ -42,4 +42,5 @@ fde.fake_bluetooth_mac=1
 fde.fake_sim_info=1
 fde.fake_wifi_mac=1
 ro.sf.lcd_density=160
+persist.fde.gnss=$GPGGA,,28.228304,N,112.938882,E,,,,58,M
 #keep this row to row end
