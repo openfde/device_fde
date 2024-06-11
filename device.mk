@@ -224,7 +224,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
-    wpa_supplicant
+    wpa_supplicant \
+    00-mesa-defaults.conf
+   
 
 #gps
 PRODUCT_PACKAGES += \
