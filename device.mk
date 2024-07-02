@@ -203,7 +203,8 @@ PRODUCT_PACKAGES += \
     WaydroidUpdater
 
 PRODUCT_PACKAGES += \
-    FdeVncClient
+    FdeVncClient \
+    OOBE \
 
 PRODUCT_PACKAGES += \
     FdeGallery	
