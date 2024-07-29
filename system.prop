@@ -44,4 +44,6 @@ fde.fake_wifi_mac=1
 fde.apps_crop_camera_image=com.lite.ceclanxin
 ro.sf.lcd_density=160
 persist.fde.gnss=$GPGGA,,28.228304,N,112.938882,E,,,,58,M
+ro.boot.btmacaddr=34:23:54:12:28:65
+fde.fake_bt=1
 #keep this row to row end
