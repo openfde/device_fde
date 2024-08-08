@@ -10,7 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),openfde_fde_arm64))
+ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),openfde_fde_arm64 openfde_x100_arm64))
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 LOCAL_PATH := $(call my-dir)

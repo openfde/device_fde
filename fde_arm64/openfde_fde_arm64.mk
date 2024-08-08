@@ -19,7 +19,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Inherit from openfde device
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)
-$(call inherit-product, $(LOCAL_PATH)/emugl-device.mk)
+$(call inherit-product, $(LOCAL_PATH)/../emugl-device.mk)
 
 PRODUCT_BRAND := fde
 PRODUCT_DEVICE := fde_arm64
