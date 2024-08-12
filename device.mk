@@ -170,6 +170,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:system/etc/permissions/android.software.freeform_window_management.xml
 
+
+# magic window
+PRODUCT_COPY_FILES += \
+    device/openfde/fde/configs/magic_config.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/magicwindow_config/magic_config.xml
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service.waydroid
