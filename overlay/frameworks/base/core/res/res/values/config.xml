@@ -25,6 +25,8 @@
     <!-- The device supports freeform window management -->
     <bool name="config_freeformWindowManagement">true</bool>
 
+    <bool name="config_single_volume">true</bool>
+
     <!-- enaphyt4i eth enaftgm1i usb -->
     <string translatable="false" name="config_ethernet_iface_regex">(en.+|wl.+|usb\\d)</string>
     <string translatable="false" name="config_ethernet_iface_blacklist_regex">(lo|sit\\d|ip6tnl\\d|docker\\d|lxcbr\\d|waydroid\\d|veth.+|xdroid.+)</string>
