@@ -39,7 +39,6 @@ ro.lmk.kill_timeout_ms=100
 ro.lmk.use_minfree_levels=true
 
 fde.fake_bluetooth_mac=1
-fde.fake_sim_info=1
 fde.fake_wifi_mac=1
 fde.apps_crop_camera_image=com.lite.ceclanxin
 ro.sf.lcd_density=160
