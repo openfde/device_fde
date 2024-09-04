@@ -93,6 +93,24 @@ PRODUCT_PACKAGES += \
     vulkan.virtio \
     vulkan.lvp
 
+ifneq ($(filter %_openfde_fde_x86 %_openfde_fde_x86_64,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += \
+    vulkan.intel \
+    vulkan.intel_hasvk
+endif
+
+
+# Media - Stagefright FFMPEG plugin
+ifneq ($(filter %_openfde_fde_x86 %_openfde_fde_x86_64,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += \
+    libffmpeg_omx \
+    media_codecs_ffmpeg.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.sf.omx-plugin=libffmpeg_omx.so \
+    media.sf.hwaccel=1
+endif
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 endif
@@ -212,7 +230,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
  	ro.hardware.gatekeeper=waydroid \
  	ro.hardware.memtrack=waydroid \
  	ro.hardware.hwcomposer=waydroid \
-    ro.hardware.audio.primary=waydroid
+        ro.hardware.audio.primary=waydroid
 
 
 PRODUCT_PACKAGES += \
@@ -236,6 +254,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
+endif
+
+ifeq ($(filter %_openfde_fde_x86 %_openfde_fde_x86_64,$(TARGET_PRODUCT)),)
+PRODUCT_EXTRA_VNDK_VERSIONS := 28 29
 endif
 
 PRODUCT_CHARACTERISTICS := tablet
