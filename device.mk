@@ -256,10 +256,6 @@ ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
 endif
 
-ifeq ($(filter %_openfde_fde_x86 %_openfde_fde_x86_64,$(TARGET_PRODUCT)),)
-PRODUCT_EXTRA_VNDK_VERSIONS := 28 29
-endif
-
 PRODUCT_CHARACTERISTICS := tablet
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(LOCAL_PATH)/x100_prebuilts/prebuilts.mk)
