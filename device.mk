@@ -183,6 +183,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:system/etc/permissions/android.software.freeform_window_management.xml \
     frameworks/base/data/etc/com.android.oobe.xml:system/system_ext/etc/permissions/com.android.oobe.xml
 
+
+# magic window
+PRODUCT_COPY_FILES += \
+    device/openfde/fde/configs/magic_config.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/magicwindow_config/magic_config.xml
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service.waydroid

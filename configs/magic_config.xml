@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<packages>
+<package packagename="com.jingdong.app.mall" main="MainFrameActivity" />
+<package packagename="com.ss.android.article.news" main="MainActivity" />
+<package packagename="com.zhihu.android" main="MainActivity" />
+<package packagename="com.xingin.xhs" main="IndexActivityV2" />
+<package packagename="com.sina.weibo" main="VisitorMainTabActivity" />
+<package packagename="com.moji.mjweather" main="MainActivity" />
+<package packagename="com.kuaishou.nebula" main="HomeActivity" />
+<package packagename="ctrip.android.view" main="CtripHomeActivity" />
+<package packagename="com.Qunar" main="MainActivity" />
+<package packagename="com.tencent.mm" main="LauncherUI" />
+</packages>
