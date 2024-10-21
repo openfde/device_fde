@@ -71,8 +71,10 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
+
 # Don't build emulator
-ifneq ($(filter %_openfde_fde_x86 %_openfde_fde_x86_64,$(TARGET_PRODUCT)),)
+ifeq ($(filter openfde_fde_x86 openfde_fde_x86_64,$(TARGET_PRODUCT)),)
+$(warning openfde is going to compile emulator )
 BUILD_EMULATOR := false
 BUILD_STANDALONE_EMULATOR := false
 BUILD_EMULATOR_QEMUD := false
