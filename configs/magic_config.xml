@@ -9,5 +9,5 @@
 <package packagename="com.kuaishou.nebula" main="HomeActivity" />
 <package packagename="ctrip.android.view" main="CtripHomeActivity" />
 <package packagename="com.Qunar" main="MainActivity" />
-<package packagename="com.tencent.mm" main="LauncherUI" />
+<package packagename="com.tencent.mm" main="LauncherUI" activity_need_resume_main="Login/Welcome"/>
 </packages>
