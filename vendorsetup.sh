@@ -9,6 +9,9 @@ function syncFdeApk {
 
 	configPath=${ANDROID_BUILD_TOP}/device/openfde/fde/fde_gallery/FdeGallery
 	compareAndDownload  ${configPath}  ${configPath}.apk 
+ 
+ 	configPath=${ANDROID_BUILD_TOP}/device/openfde/fde/fde_provision/Provision
+	compareAndDownload  ${configPath}  ${configPath}.apk
 }
 
 function compareAndDownload  {
