@@ -223,6 +223,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FdeVncClient \
     OOBE \
+	FdeTools \ 
 
 PRODUCT_PACKAGES += \
     FdeGallery	
