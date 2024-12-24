@@ -221,7 +221,6 @@ PRODUCT_PACKAGES += \
     WaydroidUpdater
 
 PRODUCT_PACKAGES += \
-    FdeVncClient \
     OOBE \
 
 PRODUCT_PACKAGES += \

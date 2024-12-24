@@ -1,8 +1,8 @@
 
 
 function syncFdeApk {
-	configPath=${ANDROID_BUILD_TOP}/device/openfde/fde/fde_vnc/FdeVncClient 
-	compareAndDownload  ${configPath}  ${configPath}.apk 
+	#configPath=${ANDROID_BUILD_TOP}/device/openfde/fde/fde_vnc/FdeVncClient 
+	#compareAndDownload  ${configPath}  ${configPath}.apk 
 
 	configPath=${ANDROID_BUILD_TOP}/vendor/prebuilts/bdapps/bin/BoringdroidSystemUI
 	compareAndDownload  ${configPath}  ${configPath}.apk 
