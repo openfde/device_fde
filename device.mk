@@ -222,7 +222,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     OOBE \
-    FdeTools
+    FDELinuxAppLauncher
 
 PRODUCT_PACKAGES += \
     FdeGallery	
