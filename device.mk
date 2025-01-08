@@ -222,6 +222,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     OOBE \
+    FdeTools
 
 PRODUCT_PACKAGES += \
     FdeGallery	
