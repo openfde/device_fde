@@ -222,6 +222,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     OOBE \
+	FdePreInstaller \
     FDELinuxAppLauncher
 
 PRODUCT_PACKAGES += \
