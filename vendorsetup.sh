@@ -32,9 +32,6 @@ function resetPatch {
 list="system/bt hardware/interfaces frameworks/av"
 
 function Fde64onlyRestore {
-	cd device/openfde/fde
-	sed -i "/TARGET_2ND/s/^#//" fde_arm64/BoardConfig.mk
-	cd -  1>/dev/null 2>&1
 	for i in $list
 	do
 		resetPatch $i
@@ -48,10 +45,6 @@ function Fde64onlyRestore {
 
 
 function Fde64only {
-	cd device/openfde/fde
-	sed -i "/TARGET_2ND/s/^#//" fde_arm64/BoardConfig.mk
-	sed -i "s/TARGET_2ND/#TARGET_2ND/" fde_arm64/BoardConfig.mk
-	cd -  1>/dev/null 2>&1
 	cd platform_testing
 	sed -i "/resolv_gold_test.*$/d" build/tasks/tests/native_test_list.mk
 	cd -  1>/dev/null 2>&1

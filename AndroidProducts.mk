@@ -25,6 +25,7 @@ endif
 
 PRODUCT_MAKEFILES := \
     $(VENDOR_NAME)_fde_arm64:$(LOCAL_DIR)/fde_arm64/$(VENDOR_NAME)_fde_arm64.mk \
+    $(VENDOR_NAME)_fde_arm64_only:$(LOCAL_DIR)/fde_arm64/$(VENDOR_NAME)_fde_arm64.mk \
     $(VENDOR_NAME)_x100_arm64:$(LOCAL_DIR)/x100/$(VENDOR_NAME)_x100_arm64.mk    \
     $(VENDOR_NAME)_fde_x86_64:$(LOCAL_DIR)/fde_x86_64/$(VENDOR_NAME)_fde_x86_64.mk
 
@@ -36,4 +37,6 @@ COMMON_LUNCH_CHOICES := \
     $(VENDOR_NAME)_x100_arm64-user  \
     $(VENDOR_NAME)_fde_x86_64-user \
     $(VENDOR_NAME)_fde_x86_64-userdebug \
-    $(VENDOR_NAME)_fde_x86_64-eng
+    $(VENDOR_NAME)_fde_x86_64-eng \
+    $(VENDOR_NAME)_fde_arm64_only-user  \
+    $(VENDOR_NAME)_fde_arm64_only-userdebug

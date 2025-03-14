@@ -24,5 +24,9 @@ $(call inherit-product, $(LOCAL_PATH)/../emugl-device.mk)
 PRODUCT_BRAND := fde
 PRODUCT_DEVICE := fde_arm64
 PRODUCT_MANUFACTURER := fde
+ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),openfde_fde_arm64))
 PRODUCT_NAME := openfde_fde_arm64
+else
+PRODUCT_NAME := openfde_fde_arm64_only
+endif
 PRODUCT_MODEL := OpenFDE arm64 Device
