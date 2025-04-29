@@ -10,7 +10,8 @@ LEOPARD_PRODUCT_PACKAGES := \
     libVSC \
     libvulkan_LEOPARD \
     vulkan.LEOPARD \
-    libSPIRV_LEOPARD
+    libSPIRV_LEOPARD \
+    libdrm_android
 
 PRODUCT_PACKAGES += \
         $(LEOPARD_PRODUCT_PACKAGES)
