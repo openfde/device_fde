@@ -25,36 +25,33 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<manifest version="1.0" type="device" target-level="3">
-    <hal format="hidl">
+<manifest version="1.0" type="device" target-level="7">
+    <!--hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
-        <version>4.0</version>
+        <version>7.1</version>
         <interface>
             <name>IDevicesFactory</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport>hwbinder</transport>
-        <version>4.0</version>
+        <version>7.0</version>
         <interface>
             <name>IEffectsFactory</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <hal format="aidl">
         <name>android.hardware.camera.provider</name>
-        <transport>hwbinder</transport>
-        <version>2.4</version>
         <interface>
             <name>ICameraProvider</name>
-            <instance>legacy/0</instance>
             <instance>external/0</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <!--hal format="hidl">
         <name>android.hardware.configstore</name>
         <transport>hwbinder</transport>
         <version>1.1</version>
@@ -62,8 +59,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>ISurfaceFlingerConfigs</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.drm</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -77,8 +74,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
         <fqname>@1.3::ICryptoFactory/clearkey</fqname>
         <fqname>@1.3::IDrmFactory/clearkey</fqname>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -86,7 +83,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IGatekeeper</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal-->
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
         <transport>hwbinder</transport>
@@ -114,7 +111,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <!--hal format="hidl">
         <name>android.hardware.health</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
@@ -122,8 +119,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IHealth</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.keymaster</name>
         <transport>hwbinder</transport>
         <version>4.0</version>
@@ -131,8 +128,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IKeymasterDevice</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.light</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
@@ -140,8 +137,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>ILight</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -153,8 +150,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IOmxStore</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.memtrack</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -162,8 +159,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IMemtrack</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
+    </hal-->
+    <!--hal format="hidl">
         <name>android.hardware.power</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -171,8 +168,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IPower</name>
             <instance>default</instance>
         </interface>
-    </hal>
-	<hal format="hidl">
+    </hal-->
+	<!--hal format="hidl">
 		<name>android.hardware.sensors</name>
 		<transport>hwbinder</transport>
 		<version>1.0</version>
@@ -180,8 +177,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 			<name>ISensors</name>
 			<instance>default</instance>
 		</interface>
-	</hal>
-    <hal format="hidl">
+	</hal-->
+    <!--hal format="hidl">
         <name>android.hardware.vibrator</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -189,31 +186,32 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IVibrator</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal-->
+    
     <hal format="hidl">
-        <name>vendor.waydroid.display</name>
+        <name>vendor.openfde.display</name>
         <transport>hwbinder</transport>
         <version>1.1</version>
         <interface>
-            <name>IWaydroidDisplay</name>
+            <name>IOpenfdeDisplay</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.waydroid.task</name>
+        <name>vendor.openfde.task</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IWaydroidTask</name>
+            <name>IOpenfdeTask</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.waydroid.window</name>
+        <name>vendor.openfde.window</name>
         <transport>hwbinder</transport>
         <version>1.2</version>
         <interface>
-            <name>IWaydroidWindow</name>
+            <name>IOpenfdeWindow</name>
             <instance>default</instance>
         </interface>
     </hal>

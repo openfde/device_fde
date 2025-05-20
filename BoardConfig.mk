@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The Waydroid Project
+# Copyright (C) 2021 The Openfde Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ BOARD_VENDOR := openfde
 DEVICE_PATH := device/openfde/fde
 
 # Binder
-TARGET_USES_64_BIT_BINDER := true
+#TARGET_USES_64_BIT_BINDER := true
 
 # APEX
 TARGET_FLATTEN_APEX := true
@@ -40,7 +40,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_HWC2 := true
 ifneq ($(TARGET_USE_MESA),false)
 BOARD_MESA3D_USES_MESON_BUILD := true
-BOARD_MESA3D_MESON_ARGS := -Dallow-kcmp=enabled -Dintel-xe-kmd=enabled
+BOARD_MESA3D_MESON_ARGS := -Dallow-kcmp=enabled
 BOARD_MESA3D_BUILD_LIBGBM := true
 BOARD_MESA3D_GALLIUM_DRIVERS := kmsro r300 r600 nouveau freedreno swrast v3d vc4 etnaviv tegra svga virgl panfrost lima radeonsi
 BOARD_MESA3D_VULKAN_DRIVERS := broadcom freedreno panfrost swrast virtio amd
@@ -59,31 +59,13 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Partitions
 TARGET_COPY_OUT_VENDOR := vendor
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3547483648
-BOARD_VENDORIMAGE_PARTITION_SIZE := 1547483648
+#BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1968996864
+BOARD_VENDORIMAGE_PARTITION_SIZE := 507483648
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
+BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
+
 
 # Disable scudo
 MALLOC_SVELTE := true
-
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
-
-
-# Don't build emulator
-ifeq ($(filter openfde_fde_x86 openfde_fde_x86_64,$(TARGET_PRODUCT)),)
-$(warning openfde is going to compile emulator )
-BUILD_EMULATOR := false
-BUILD_STANDALONE_EMULATOR := false
-BUILD_EMULATOR_QEMUD := false
-BUILD_EMULATOR_OPENGL_DRIVER := true
-GOLDFISH_OPENGL_BUILD_FOR_HOST := false
-BUILD_EMULATOR_OPENGL := true
-BUILD_EMULATOR_QEMU_PROPS := false
-BUILD_EMULATOR_CAMERA_HAL ?= false
-BUILD_EMULATOR_GPS_MODULE ?= false
-BUILD_EMULATOR_LIGHTS_MODULE ?= false
-BUILD_EMULATOR_SENSORS_MODULE ?= false
-endif

@@ -30,8 +30,8 @@
     <bool name="config_lockscreenAntiFalsingClassifierEnabled">false</bool>
 
     <!-- SystemUI Plugins that can be loaded on user builds. -->
-    <string-array name="config_pluginWhitelist" translatable="false">
+    <string-array name="config_pluginAllowlist" translatable="false">
         <item>com.android.systemui.plugin.globalactions.wallet</item>
-		<item>com.boringdroid.systemui</item>
+        <item>com.boringdroid.systemui</item>
     </string-array>
 </resources>

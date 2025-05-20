@@ -1,2 +1,2 @@
-Device configuration for fde images
+Device configuration for openfde images
 ==================================

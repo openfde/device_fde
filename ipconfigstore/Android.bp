@@ -2,7 +2,7 @@ cc_binary {
     name: "ipconfigstore",
     srcs: ["*.cc"],
     cflags: ["-Wall", "-Werror"],
-    shared_libs: ["libbase", "liblog", "libcutils"],
+    shared_libs: ["libbase"],
     vendor: true,
 }
 

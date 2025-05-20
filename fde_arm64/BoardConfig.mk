@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The Waydroid Project
+# Copyright (C) 2021 The Openfde Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,11 +23,8 @@ TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 
-
-ifneq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),openfde_fde_arm64_only))
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
-endif

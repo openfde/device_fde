@@ -10,7 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),openfde_x100_arm64))
+ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),fde_x100_arm64))
 
 LOCAL_PATH := $(call my-dir)
 

@@ -25,10 +25,15 @@
     <!-- The device supports freeform window management -->
     <bool name="config_freeformWindowManagement">true</bool>
 
-    <bool name="config_single_volume">true</bool>
+    <integer name="config_minimumScreenOffTimeout">2147483647</integer>
+	
+	<bool name="config_lockscreenAntiFalsingClassifierEnabled">false</bool>
 
-    <!-- enaphyt4i eth enaftgm1i usb -->
-    <string translatable="false" name="config_ethernet_iface_regex">(en.+|wl.+|usb\\d)</string>
-    <string translatable="false" name="config_ethernet_iface_blacklist_regex">(lo|sit\\d|ip6tnl\\d|docker\\d|lxcbr\\d|waydroid\\d|veth.+|xdroid.+)</string>
+    <!-- SystemUI Plugins that can be loaded on user builds. -->
+    <string-array name="config_pluginWhitelist" translatable="false">
+        <item>com.android.systemui.plugin.globalactions.wallet</item>
+                <item>com.boringdroid.systemui</item>
+    </string-array>
+    <bool name="config_single_volume">true</bool>
 
 </resources>

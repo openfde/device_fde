@@ -1,0 +1,16 @@
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := FdeSystemUI
+LOCAL_CERTIFICATE := platform
+LOCAL_SRC_FILES := BoringdroidSystemUI.apk
+LOCAL_MODULE_CLASS := APPS
+LOCAL_PRODUCT_MODULE := true
+
+# 指定安装路径为 /system/system_ext/priv-app/
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_MODULE_PATH := $(TARGET_OUT_SYSTEM_EXT)/priv-app
+LOCAL_UNSTRIPPED_PATH := $(TARGET_OUT_SYSTEM_EXT_UNSTRIPPED)/priv-app
+
+include $(BUILD_PREBUILT)

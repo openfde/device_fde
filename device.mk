@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The Waydroid Project
+# Copyright (C) 2021 The Openfde Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,13 +14,31 @@
 # limitations under the License.
 #
 
-#
-# 1.set log level to warnings when buid user version.
-#
-
 # Inherit from aosp products.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+PRODUCT_SHIPPING_API_LEVEL := 34
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
+
+PRODUCT_BUILD_CACHE_IMAGE := false
+PRODUCT_BUILD_ODM_IMAGE := false
+PRODUCT_BUILD_PRODUCT_IMAGE  := false
+PRODUCT_BUILD_PRODUCT_SERVICES_IMAGE := false
+PRODUCT_BUILD_RAMDISK_IMAGE := false
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
+PRODUCT_BUILD_USERDATA_IMAGE := false
+PRODUCT_BUILD_VBMETA_IMAGE := false
+PRODUCT_BUILD_VENDOR_IMAGE := true
+ifeq ($(BUILD_VENDOR_ONLY), true)
+PRODUCT_BUILD_SYSTEM_IMAGE := false
+else
+PRODUCT_BUILD_SYSTEM_IMAGE := true
+endif
+
+
 
 # Inherit some common ROM stuff
 $(call inherit-product-if-exists, vendor/lineage/config/common_full_tablet_wifionly.mk)
@@ -28,25 +46,25 @@ $(call inherit-product-if-exists, vendor/bliss/config/common_full_tablet_wifionl
 
 # Audio HAL
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio@4.0-impl \
-    android.hardware.audio.effect@4.0-impl \
-    audio.primary.waydroid \
-    audio.r_submix.default \
-    audio.usb.default \
-    audio.a2dp.default \
     libasound_module_pcm_pulse \
     libasound_module_ctl_pulse \
-    libasound_module_conf_pulse
+    libasound_module_conf_pulse \
+    android.hardware.audio.parameter_parser.example_service \
+    com.android.hardware.audio
 
 PRODUCT_COPY_FILES += \
-    hardware/waydroid/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
+    frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
+    $(LOCAL_PATH)/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/configs/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_audio_policy_configuration.xml \
+    hardware/interfaces/audio/aidl/default/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_config.xml
 
 # Camera
 USE_CAMERA_V4L2_HAL := false
@@ -54,10 +72,10 @@ USE_CAMERA_V4L2_HAL := false
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    android.hardware.camera.provider@2.4-external-service
+    android.hardware.camera.provider-V1-external-service
 
 PRODUCT_COPY_FILES += \
-    device/openfde/fde/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+        $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 # Display
 PRODUCT_PACKAGES += \
@@ -66,17 +84,13 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
-    vendor.waydroid.task@1.0-service \
-    hwcomposer.waydroid
-
-PRODUCT_PACKAGES += \
-    libEGL_swiftshader \
-    libGLESv1_CM_swiftshader \
-    libGLESv2_swiftshader
+    vendor.openfde.task@1.0-service \
+    hwcomposer.openfde \
+    android.hardware.health-service.example
+    
 
 ifneq ($(TARGET_USE_MESA),false)
 PRODUCT_PACKAGES += \
-    gralloc.minigbm_gbm_mesa \
     gralloc.gbm \
     libEGL_mesa \
     libGLESv1_CM_mesa \
@@ -93,77 +107,49 @@ PRODUCT_PACKAGES += \
     vulkan.virtio \
     vulkan.lvp
 
-ifneq ($(filter %_openfde_fde_x86 %_openfde_fde_x86_64,$(TARGET_PRODUCT)),)
-PRODUCT_PACKAGES += \
-    vulkan.intel \
-    vulkan.intel_hasvk
-endif
-
-
-# Media - Stagefright FFMPEG plugin
-ifneq ($(filter %_openfde_fde_x86 %_openfde_fde_x86_64,$(TARGET_PRODUCT)),)
-PRODUCT_PACKAGES += \
-    libffmpeg_omx \
-    media_codecs_ffmpeg.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.hwaccel=1
-endif
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 endif
 
+PRODUCT_PACKAGES += \
+    vulkan.pastel 
+#angle added by RELEASE_ANGLE_ON_SYSTEM in build/release/build_config/ap2a.scl
+
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.3-service.clearkey
+    android.hardware.drm-service-lazy.clearkey
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service \
-    gatekeeper.waydroid
+    android.hardware.gatekeeper@1.0-service.software \
+    android.hardware.keymaster@4.1-service \
+    android.hardware.power-service.example \
+    android.hardware.thermal@2.0-service.mock
 
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.waydroid
 
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0-service
-
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.waydroid
 
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/media_profiles_V1_0.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
+    $(LOCAL_PATH)/configs/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
-# Memtrack
-PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    memtrack.waydroid
+    #frameworks/av/media/libstagefright/data/media_codecs_google_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2.xml
+    #frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml 
+    #frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml
 
 # NFC
 PRODUCT_PACKAGES += \
     NfcNci
 
 # Overlays
-PRODUCT_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay $(PRODUCT_PACKAGE_OVERLAYS)
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+PRODUCT_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay_common $(PRODUCT_PACKAGE_OVERLAYS)
+
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
+    $(LOCAL_PATH)/configs/pc_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/pc_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
@@ -172,6 +158,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.sensor.ambient_temperature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.ambient_temperature.xml \
+    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.barometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.relative_humidity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.relative_humidity.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
@@ -179,89 +171,70 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
-    frameworks/native/data/etc/android.software.freeform_window_management.xml:system/etc/permissions/android.software.freeform_window_management.xml \
-    frameworks/base/data/etc/com.android.oobe.xml:system/system_ext/etc/permissions/com.android.oobe.xml
+    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml
 
-
-# magic window
+# alsa-lib
 PRODUCT_COPY_FILES += \
-    device/openfde/fde/configs/magic_config.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/magicwindow_config/magic_config.xml
-
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.waydroid
+    external/alsa-lib/src/conf/alsa.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/alsa.conf \
+    external/alsa-lib/src/conf/pcm/dsnoop.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/dsnoop.conf \
+    external/alsa-lib/src/conf/pcm/modem.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/modem.conf \
+    external/alsa-lib/src/conf/pcm/dpl.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/dpl.conf \
+    external/alsa-lib/src/conf/pcm/default.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/default.conf \
+    external/alsa-lib/src/conf/pcm/surround51.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround51.conf \
+    external/alsa-lib/src/conf/pcm/surround41.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround41.conf \
+    external/alsa-lib/src/conf/pcm/surround50.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround50.conf \
+    external/alsa-lib/src/conf/pcm/dmix.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/dmix.conf \
+    external/alsa-lib/src/conf/pcm/center_lfe.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/center_lfe.conf \
+    external/alsa-lib/src/conf/pcm/surround40.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/alsa.conf \
+    external/alsa-lib/src/conf/pcm/side.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/pcm/side.conf \
+    external/alsa-lib/src/conf/pcm/iec958.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/iec958.conf \
+    external/alsa-lib/src/conf/pcm/rear.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/rear.conf \
+    external/alsa-lib/src/conf/pcm/surround71.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround71.conf \
+    external/alsa-lib/src/conf/pcm/front.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/front.conf \
+    external/alsa-lib/src/conf/cards/aliases.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/cards/aliases.conf
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
 
-# Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.mock
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-service.waydroid
-
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# VNDK
-PRODUCT_PACKAGES += \
-    ld.config.vndk_lite.txt
-
 # Binder IPC
 PRODUCT_PACKAGES += \
-    vndservicemanager
-
-# Updater
-PRODUCT_PACKAGES += \
-    WaydroidUpdater
-
-PRODUCT_PACKAGES += \
-    OOBE \
-	FdePreInstaller \
-    FDELinuxAppLauncher
-
-PRODUCT_PACKAGES += \
-    FdeGallery	
-
-#FDE
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc
-    
-PRODUCT_PROPERTY_OVERRIDES += \
- 	ro.hardware.gatekeeper=waydroid \
- 	ro.hardware.memtrack=waydroid \
- 	ro.hardware.hwcomposer=waydroid \
-        ro.hardware.audio.primary=waydroid
-
-
-PRODUCT_PACKAGES += \
+    vndservicemanager \
+    libutilscallstack.vendor \
+    libion.vendor \
     ipconfigstore
 
+# BoringdroidSystemUI
 PRODUCT_PACKAGES += \
-    wpa_supplicant.conf \
-    wpa_supplicant \
-    00-mesa-defaults.conf
-   
+    FdeSystemUI \
+    FDECuratedApps \
+    FDELinuxAppLauncher
+
+PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.hwcomposer=openfde \
+    ro.hardware.gps=openfde
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.c2inputsurface=-1 \
+    ro.apex.updatable=false
 
 #gps
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-service \
     android.hardware.gnss@1.0-impl \
-    gps.open_fde
+    gps.openfde
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.gps=open_fde
-
-
-ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
-endif
+OVERRIDE_ENABLE_UFFD_GC = false
+OVERRIDE_PRODUCT_COMPRESSED_APEX=false
 
 PRODUCT_CHARACTERISTICS := tablet
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(LOCAL_PATH)/x100_prebuilts/prebuilts.mk)
+$(call inherit-product, $(LOCAL_PATH)/leopard_prebuilts/prebuilts.mk)

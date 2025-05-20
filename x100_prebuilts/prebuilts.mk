@@ -1,5 +1,4 @@
-ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),openfde_x100_arm64))
-
+ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),fde_x100_arm64))
 PRODUCT_PACKAGES += \
     libPVRScopeServices \
     libPVROCL \
