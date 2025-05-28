@@ -29,4 +29,4 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CHECK_ELF_FILES := false
 
 # 构建预编译库
-include $(BUILD_PREBUILT)
+include $(BUILD_SHARED_LIBRARY)
