@@ -29,4 +29,4 @@ libs_x11 := $(shell cd $(LOCAL_PATH)/x11 && find -maxdepth 1 -name '*.so' -type 
 libs_x11 := $(subst .so,,$(subst ./,,$(libs_x11)))
 
 # 为每个 .so 创建一个模块
-$(foreach lib,$(libs_x11),$(eval $(call define-x11-prebuilt-lib,$(lib))))
+$(foreach lib,$(libs_x11),$(eval $(call define-x11-prebuilt-lib,$(lib), $(lib).so)))
