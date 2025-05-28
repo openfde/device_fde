@@ -21,6 +21,7 @@ LOCAL_MODULE_SUFFIX := .so
 # 安装路径（可选，如无则默认在 system/lib 或 system/lib64）
 # LOCAL_MODULE_RELATIVE_PATH := x11
 
+# 支持 32/64 位
 
 # 专有模块（如厂商闭源库）
 LOCAL_PROPRIETARY_MODULE := true
@@ -29,4 +30,4 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CHECK_ELF_FILES := false
 
 # 构建预编译库
-include $(BUILD_SHARED_LIBRARY)
+include $(PREBUILT_SHARED_LIBRARIES)
