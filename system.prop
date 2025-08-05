@@ -43,6 +43,7 @@ ro.hardware.audio.tinyalsa.period_size_multiplier=2
 persist.fde.gnss=$GPGGA,,28.228304,N,112.938882,E,,,,58,M
 ro.lockscreen.disable.default=true
 openfde.apps_crop_camera_image=com.lite.ceclanxin
+ro.config.media_vol_default=15
 
 #ro.hardware.egl=mesa
 #ro.hardware.vulkan=radeon
