@@ -236,7 +236,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
  	ro.hardware.gatekeeper=waydroid \
  	ro.hardware.memtrack=waydroid \
- 	ro.hardware.hwcomposer=waydroid \
         ro.hardware.audio.primary=waydroid
 
 
