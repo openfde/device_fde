@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := RemovePackages
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
-LOCAL_OVERRIDES_PACKAGES := AudioFX Bluetooth BluetoothMidiService Contacts Jelly Eleven Updater
+LOCAL_OVERRIDES_PACKAGES := AudioFX Bluetooth BluetoothMidiService Contacts Jelly Eleven Updater Glimpse
 #LineageSetupWizard
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED

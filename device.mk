@@ -213,6 +213,9 @@ PRODUCT_PACKAGES += \
     FdeSystemUI \
     FDECuratedApps \
     FDELinuxAppLauncher
+	
+PRODUCT_PACKAGES += \
+    FdeGallery		
 
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc
@@ -230,6 +233,9 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-service \
     android.hardware.gnss@1.0-impl \
     gps.openfde
+
+PRODUCT_PACKAGES += \
+    TaskManager
 
 OVERRIDE_ENABLE_UFFD_GC = false
 OVERRIDE_PRODUCT_COMPRESSED_APEX=false
