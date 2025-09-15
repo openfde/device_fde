@@ -86,6 +86,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     vendor.openfde.task@1.0-service \
     hwcomposer.openfde \
+    hwcomposer.x11 \
     android.hardware.health-service.example
     
 
@@ -221,7 +222,6 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.hwcomposer=openfde \
     ro.hardware.gps=openfde
 
 PRODUCT_PROPERTY_OVERRIDES += \
