@@ -243,4 +243,4 @@ OVERRIDE_PRODUCT_COMPRESSED_APEX=false
 PRODUCT_CHARACTERISTICS := tablet
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(LOCAL_PATH)/x100_prebuilts/prebuilts.mk)
-$(call inherit-product, $(LOCAL_PATH)/leopard_prebuilts/prebuilts.mk)
+$(call inherit-product, $(LOCAL_PATH)/../ftg340/prebuilts.mk)
