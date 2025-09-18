@@ -234,6 +234,10 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
     gps.openfde
 
+#sensors apex
+PRODUCT_PACKAGES += \
+    com.android.hardware.sensors
+
 PRODUCT_PACKAGES += \
     TaskManager
 
