@@ -28,6 +28,9 @@ debug.sf.nobootanimation=1
 # Disable RescueParty
 persist.sys.disable_rescue=true
 
+# Disable Shell transitions animation
+persist.wm.debug.shell_transit=false
+
 # LMKd
 ro.lmk.low=1001
 ro.lmk.medium=800
