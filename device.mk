@@ -194,6 +194,11 @@ PRODUCT_COPY_FILES += \
     external/alsa-lib/src/conf/pcm/front.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/front.conf \
     external/alsa-lib/src/conf/cards/aliases.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/cards/aliases.conf
 
+# magic window
+PRODUCT_COPY_FILES += \
+    device/openfde/fde/configs/magic_config.xml:system/magicwindow_config/magic_config.xml
+
+
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
