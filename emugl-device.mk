@@ -11,7 +11,6 @@
 # limitations under the License.
 #
 ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),fde_arm64 fde_x100_arm64))
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 LOCAL_PATH := $(call my-dir)
 
