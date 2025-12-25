@@ -36,4 +36,8 @@
     </string-array>
     <bool name="config_single_volume">true</bool>
 
+    <!-- True to skip the fade animation on display off event -->
+    <bool name="config_displayColorFadeDisabled">true</bool>
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+
 </resources>
