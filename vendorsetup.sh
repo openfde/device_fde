@@ -3,6 +3,8 @@
 function syncFdeApk {
  	configPath=${ANDROID_BUILD_TOP}/device/openfde/fde/fde_systemui/BoringdroidSystemUI
 	compareAndDownload  ${configPath}  ${configPath}.apk
+	configPath=${ANDROID_BUILD_TOP}/device/openfde/fde/fde_gallery/FdeGallery
+	compareAndDownload ${configPath} ${configPath}.apk
 }
 
 function compareAndDownload  {
