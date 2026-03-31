@@ -64,4 +64,6 @@
     <!-- Feature to specify if the device supports freeform. -->
     <feature name="android.software.freeform_window_management" />
     <feature name="android.hardware.type.pc" />
+
+    <feature name="android.hardware.sensor.accelerometer" />
 </permissions>
