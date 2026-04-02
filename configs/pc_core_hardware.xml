@@ -66,4 +66,5 @@
     <feature name="android.hardware.type.pc" />
 
     <feature name="android.hardware.sensor.accelerometer" />
+    <feature name="android.hardware.sensor.compass" />
 </permissions>
