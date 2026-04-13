@@ -67,4 +67,9 @@
 
     <feature name="android.hardware.sensor.accelerometer" />
     <feature name="android.hardware.sensor.compass" />
+    <feature name="android.hardware.sensor.dynamic.head_tracker" />
+    <feature name="android.hardware.sensor.gyroscope" />
+    <feature name="android.hardware.sensor.light" />
+    <feature name="android.hardware.sensor.stepcounter" />
+    <feature name="android.hardware.sensor.stepdetector" />
 </permissions>
