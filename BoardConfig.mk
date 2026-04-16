@@ -71,6 +71,8 @@ BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
 MALLOC_SVELTE := true
 
 # Don't build emulator
+ifeq ($(filter openfde_fde_x86 fde_arm64_only openfde_fde_x86_64,$(TARGET_PRODUCT)),)
+$(warning openfde is going to compile emulator )
 BUILD_EMULATOR := false
 BUILD_STANDALONE_EMULATOR := false
 BUILD_EMULATOR_QEMUD := false
@@ -82,3 +84,4 @@ BUILD_EMULATOR_CAMERA_HAL ?= false
 BUILD_EMULATOR_GPS_MODULE ?= false
 BUILD_EMULATOR_LIGHTS_MODULE ?= false
 BUILD_EMULATOR_SENSORS_MODULE ?= false
+endif
