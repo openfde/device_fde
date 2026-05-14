@@ -23,7 +23,6 @@ ro.surface_flinger.vsync_event_phase_offset_ns=2000000
 ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 debug.sf.latch_unsignaled=1
 debug.sf.disable_backpressure=1
-debug.sf.nobootanimation=1
 
 # Disable RescueParty
 persist.sys.disable_rescue=true
