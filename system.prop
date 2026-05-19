@@ -18,6 +18,11 @@ dalvik.vm.heapsize=1024m
 dalvik.vm.heaptargetutilization?=0.75
 dalvik.vm.heapminfree=16m
 dalvik.vm.heapmaxfree=32m
+dalvik.vm.heapstartsize32=16m
+dalvik.vm.heapgrowthlimit32=192m
+dalvik.vm.heapsize32=256m
+dalvik.vm.heapminfree32=512k
+dalvik.vm.heapmaxfree32=8m
 
 # SurfaceFlinger
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
