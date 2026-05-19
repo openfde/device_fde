@@ -240,17 +240,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.c2inputsurface=-1 \
     ro.apex.updatable=false
 
-#dexopt and vm size
-PRODUCT_PROPERTY_OVERRIDES += \
-    pm.dexopt.boot-after-ota=speed \
-    pm.dexopt.bg-dexopt=speed \
-    pm.dexopt.install=speed-profile \
-    dalvik.vm.heapstartsize=64m \
-    dalvik.vm.heapgrowthlimit=512m \
-    dalvik.vm.heapsize=1024m \
-    dalvik.vm.heapminfree=16m \
-    dalvik.vm.heapmaxfree=32m
-
 #gps
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-service \
