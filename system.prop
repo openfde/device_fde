@@ -9,9 +9,6 @@ af.thread.throttle=false
 audio.deep_buffer.media=true
 
 # Provides overrides to configure the Dalvik heap for a standard tablet device
-pm.dexopt.boot-after-ota=speed
-pm.dexopt.bg-dexopt=speed
-pm.dexopt.install=speed-profile
 dalvik.vm.heapstartsize=32m
 dalvik.vm.heapgrowthlimit=512m
 dalvik.vm.heapsize=768m
