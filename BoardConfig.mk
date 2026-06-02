@@ -44,6 +44,8 @@ BOARD_MESA3D_MESON_ARGS := -Dallow-kcmp=enabled
 BOARD_MESA3D_BUILD_LIBGBM := true
 BOARD_MESA3D_GALLIUM_DRIVERS := kmsro r300 r600 nouveau freedreno swrast v3d vc4 etnaviv tegra svga virgl panfrost lima radeonsi
 BOARD_MESA3D_VULKAN_DRIVERS := broadcom freedreno panfrost swrast virtio amd
+BOARD_MESA3D_GALLIUM_VA := true
+BOARD_MESA3D_VIDEO_CODECS := all
 endif
 
 # Filesystem
@@ -52,6 +54,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml
 
 # Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
