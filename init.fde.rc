@@ -33,7 +33,7 @@ on early-init
     setprop ro.opengles.version 196610
 
 
-on property:ro.zygote=zygote64_32
+on property:ro.zygote=zygote64
     write /proc/sys/kernel/pid_max 65535
 
 on init

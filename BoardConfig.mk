@@ -36,6 +36,8 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
+TARGET_SUPPORTS_32_BIT_APPS := false
+
 # Display
 TARGET_USES_HWC2 := true
 ifneq ($(TARGET_USE_MESA),false)
