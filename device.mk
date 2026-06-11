@@ -105,12 +105,23 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(TARGET_USE_MESA),false)
 PRODUCT_PACKAGES += \
+    android.hardware.media.c2@1.2-service-ffmpeg
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.sf.hwaccel=1 \
+    debug.ffmpeg-codec2.rank=0 \
+    debug.ffmpeg-codec2.hwaccel.drm=1 \
+    debug.ffmpeg-codec2.pixel_format=RGBX_8888
+
+PRODUCT_PACKAGES += \
+    gralloc.minigbm_gbm_mesa \
+    libgallium_drv_video \
     gralloc.gbm \
     libEGL_mesa \
     libGLESv1_CM_mesa \
     libGLESv2_mesa \
     libgallium_dri \
-    libglapi \
+    dri_gbm \
     libgbm_mesa_wrapper
 
 PRODUCT_PACKAGES += \
