@@ -1,0 +1,8 @@
+soong_namespace {}
+cc_binary {
+    name: "ipconfigstore",
+    srcs: ["*.cc"],
+    cflags: ["-Wall", "-Werror"],
+    shared_libs: ["libbase", "liblog", "libcutils"],
+    vendor: true,
+}

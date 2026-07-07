@@ -1,0 +1,3 @@
+on post-fs-data
+    trigger nonencrypted
+    exec - system system -- /vendor/bin/ipconfigstore
