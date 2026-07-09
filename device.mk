@@ -129,7 +129,6 @@ ifneq ($(TARGET_USE_MESA),false)
 PRODUCT_PACKAGES += \
     gralloc.minigbm_gbm_mesa \
     libgallium_drv_video \
-    gralloc.gbm \
     libEGL_mesa \
     libGLESv1_CM_mesa \
     libGLESv2_mesa \
@@ -157,10 +156,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gralloc=minigbm_gbm_mesa \
     ro.hardware.egl=mesa \
-    ro.hardware.hwcomposer=redroid
-
-
-#ro.hardware.gralloc=minigbm_gbm_mesa
+    ro.hardware.hwcomposer=openfde
 
 
 endif
@@ -170,6 +166,7 @@ PRODUCT_PACKAGES += \
     hwservicemanager \
     screenrecord \
     ipconfigstore \
+    hwcomposer.openfde \
 
 
 
