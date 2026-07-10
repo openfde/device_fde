@@ -1,7 +1,7 @@
-on early-init
-    exec -- /bin/rm -rf /dev/input
+#on early-init
+    #exec -- /bin/rm -rf /dev/input
     # inputflinger require this dir
-    mkdir /dev/input
+    #mkdir /dev/input
 on post-fs-data
     trigger nonencrypted
     exec - system system -- /vendor/bin/ipconfigstore

@@ -15,8 +15,8 @@ USE_CAMERA_STUB := true
 
 DEVICE_MANIFEST_FILE += device/openfde/fde/manifest.xml
 
-OVERRIDE_TARGET_FLATTEN_APEX := true
-OVERRIDE_PRODUCT_COMPRESSED_APEX := false
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+TARGET_SYSTEM_PROP += device/openfde/fde/system.prop
 
 ifneq ($(TARGET_USE_MESA),false)
 BOARD_MESA3D_USES_MESON_BUILD := true
