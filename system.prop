@@ -1,1 +1,1 @@
-openfde.background_start=false
+import /vendor/openfde.prop
