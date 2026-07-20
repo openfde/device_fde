@@ -28,6 +28,5 @@ BOARD_MESA3D_VULKAN_DRIVERS := amd swrast panfrost broadcom freedreno virtio asa
 #BOARD_MESA3D_GALLIUM_VA := true
 endif
 
-# PDK does not use ext4 image, but it is added here to prevent build break.
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2097152000
+BOARD_ROOT_EXTRA_FOLDERS := odm_extra vendor_extra mnt_extra run var volumes sockets
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/openfde/fde/configs/sepolicy/private

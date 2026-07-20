@@ -31,9 +31,14 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
 PRODUCT_BUILD_USERDATA_IMAGE := false
 PRODUCT_BUILD_VBMETA_IMAGE := false
-PRODUCT_BUILD_VENDOR_IMAGE := false
+PRODUCT_BUILD_VENDOR_IMAGE := true
 PRODUCT_BUILD_SYSTEM_IMAGE := true
 BOARD_USES_METADATA_PARTITION := true
+TARGET_COPY_OUT_VENDOR := vendor
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
+BOARD_VENDORIMAGE_PARTITION_SIZE := 524288000
+
 
 PRODUCT_SHIPPING_API_LEVEL := 37
 
@@ -105,7 +110,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc \
-    $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
+    $(LOCAL_PATH)/openfde.prop:$(TARGET_COPY_OUT_VENDOR)/openfde.prop \
 
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=V
@@ -237,4 +242,3 @@ $(call inherit-product-if-exists, external/roboto-fonts/fonts.mk)
 $(call inherit-product-if-exists, external/roboto-flex-fonts/fonts.mk)
 $(call inherit-product-if-exists, external/roboto-mono/fonts.mk)
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, device/openfde/fde/redroid-prebuilts/prebuilts.mk)

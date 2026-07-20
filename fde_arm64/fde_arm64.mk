@@ -29,4 +29,4 @@ PRODUCT_MODEL := OpenFDE arm64 Device
 
 # default is nosdcard, S/W button enabled in resource
 DEVICE_PACKAGE_OVERLAYS := device/openfde/fde/overlay
-PRODUCT_CHARACTERISTICS := tablet,nosdcard
+PRODUCT_CHARACTERISTICS := tablet
