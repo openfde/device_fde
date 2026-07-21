@@ -36,8 +36,8 @@ PRODUCT_BUILD_SYSTEM_IMAGE := true
 BOARD_USES_METADATA_PARTITION := true
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
-BOARD_VENDORIMAGE_PARTITION_SIZE := 524288000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2668996864
+BOARD_VENDORIMAGE_PARTITION_SIZE := 537483648
 
 
 PRODUCT_SHIPPING_API_LEVEL := 37
@@ -63,7 +63,6 @@ PRODUCT_PACKAGES += \
     Settings \
     SystemUI \
     DocumentsUI \
-    Gallery2 \
     Camera2 \
     Calendar \
     DeskClock \
@@ -91,7 +90,10 @@ PRODUCT_PACKAGES += \
     vibrator.default
 
 
-PRODUCT_PACKAGES += FdeSystemUI
+PRODUCT_PACKAGES += \
+    FdeSystemUI \
+    FdeGallery \
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fde_systemui/privapp-permissions-fde-systemui.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-fde-systemui.xml
