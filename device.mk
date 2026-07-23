@@ -177,6 +177,7 @@ PRODUCT_PACKAGES += \
     screenrecord \
     ipconfigstore \
     hwcomposer.openfde \
+    org.openfde.platform \
 
 
 
@@ -230,6 +231,7 @@ PRODUCT_COPY_FILES += \
 
 
 $(call inherit-product, build/target/product/core_minimal.mk)
+PRODUCT_SYSTEM_SERVER_JARS += org.openfde.platform
 $(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
 $(call inherit-product-if-exists, frameworks/base/data/keyboards/keyboards.mk)
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage5.mk)
