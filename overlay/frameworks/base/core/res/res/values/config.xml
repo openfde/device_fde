@@ -29,6 +29,7 @@
     <bool name="config_isDesktopModeSupported">true</bool>
     <bool name="config_canInternalDisplayHostDesktops">true</bool>
     <bool name="config_enterDesktopByDefaultOnFreeformDisplay">true</bool>
+    <bool name="config_isDesktopModeDevOptionSupported">true</bool>
     <integer name="config_maxDesktopWindowingDesks">0</integer>
     <integer name="config_supportsNonResizableMultiWindow">1</integer>
     <integer name="config_respectsActivityMinWidthHeightMultiWindow">0</integer>
