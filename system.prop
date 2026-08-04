@@ -1,1 +1,3 @@
 import /vendor/openfde.prop
+ro.com.android.media.swcodec.ion.heapmask=1
+#last
