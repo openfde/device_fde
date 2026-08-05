@@ -138,6 +138,7 @@ ifneq ($(TARGET_USE_MESA),false)
 
 PRODUCT_PACKAGES += \
     gralloc.minigbm_gbm_mesa \
+    gralloc.gbm \
     libgallium_drv_video \
     libEGL_mesa \
     libGLESv1_CM_mesa \
@@ -164,7 +165,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.gralloc=minigbm_gbm_mesa \
+    ro.hardware.gralloc=gbm \
     ro.hardware.egl=mesa \
     ro.hardware.hwcomposer=openfde
 
