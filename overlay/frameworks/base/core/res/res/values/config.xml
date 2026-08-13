@@ -37,4 +37,5 @@
     <string-array name="config_externalOpenfdeServices">
 	    <item>org.openfde.platform.internal.OpenfdeService</item>
     </string-array>
+    <bool name="config_single_volume">true</bool>
 </resources>

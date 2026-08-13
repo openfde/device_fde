@@ -138,6 +138,7 @@ ifneq ($(TARGET_USE_MESA),false)
 
 PRODUCT_PACKAGES += \
     gralloc.minigbm_gbm_mesa \
+    gralloc.gbm \
     libgallium_drv_video \
     libEGL_mesa \
     libGLESv1_CM_mesa \
@@ -164,7 +165,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.gralloc=minigbm_gbm_mesa \
+    ro.hardware.gralloc=gbm \
     ro.hardware.egl=mesa \
     ro.hardware.hwcomposer=openfde
 
@@ -195,7 +196,6 @@ PRODUCT_PACKAGES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml
 
 
-
 # Audio HAL
 PRODUCT_PACKAGES += \
     android.hardware.audio.parameter_parser.example_service \
@@ -214,6 +214,26 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_audio_policy_configuration.xml \
     hardware/interfaces/audio/aidl/default/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_config.xml
+
+# alsa-lib
+PRODUCT_COPY_FILES += \
+    external/alsa-lib/src/conf/alsa.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/alsa.conf \
+    external/alsa-lib/src/conf/pcm/dsnoop.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/dsnoop.conf \
+    external/alsa-lib/src/conf/pcm/modem.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/modem.conf \
+    external/alsa-lib/src/conf/pcm/dpl.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/dpl.conf \
+    external/alsa-lib/src/conf/pcm/default.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/default.conf \
+    external/alsa-lib/src/conf/pcm/surround51.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround51.conf \
+    external/alsa-lib/src/conf/pcm/surround41.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround41.conf \
+    external/alsa-lib/src/conf/pcm/surround50.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround50.conf \
+    external/alsa-lib/src/conf/pcm/dmix.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/dmix.conf \
+    external/alsa-lib/src/conf/pcm/center_lfe.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/center_lfe.conf \
+    external/alsa-lib/src/conf/pcm/surround40.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/alsa.conf \
+    external/alsa-lib/src/conf/pcm/side.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/pcm/side.conf \
+    external/alsa-lib/src/conf/pcm/iec958.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/iec958.conf \
+    external/alsa-lib/src/conf/pcm/rear.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/rear.conf \
+    external/alsa-lib/src/conf/pcm/surround71.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/surround71.conf \
+    external/alsa-lib/src/conf/pcm/front.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/pcm/front.conf \
+    external/alsa-lib/src/conf/cards/aliases.conf:$(TARGET_COPY_OUT_VENDOR)/usr/share/alsa/cards/aliases.conf
 
 
 # Media
