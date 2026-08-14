@@ -40,12 +40,12 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_HWC2 := true
 ifneq ($(TARGET_USE_MESA),false)
 BOARD_MESA3D_USES_MESON_BUILD := true
-BOARD_MESA3D_MESON_ARGS := -Dallow-kcmp=enabled
+BOARD_MESA3D_MESON_ARGS := -Dallow-kcmp=enabled -Dmesa-clc=system -Dprecomp-compiler=system -Dandroid-strict=false -Dvideo-codecs=all
 BOARD_MESA3D_BUILD_LIBGBM := true
-BOARD_MESA3D_GALLIUM_DRIVERS := kmsro r300 r600 nouveau freedreno swrast v3d vc4 etnaviv tegra svga virgl panfrost lima radeonsi
-BOARD_MESA3D_VULKAN_DRIVERS := broadcom freedreno panfrost swrast virtio amd
+BOARD_MESA3D_GALLIUM_DRIVERS := r300 r600 radeonsi nouveau virgl svga v3d vc4 freedreno \
+                                    etnaviv tegra lima panfrost llvmpipe softpipe zink asahi rocket
+BOARD_MESA3D_VULKAN_DRIVERS := amd swrast panfrost broadcom freedreno virtio asahi
 BOARD_MESA3D_GALLIUM_VA := true
-BOARD_MESA3D_VIDEO_CODECS := all
 endif
 
 # Filesystem
@@ -64,7 +64,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_COPY_OUT_VENDOR := vendor
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2668996864
-BOARD_VENDORIMAGE_PARTITION_SIZE := 537483648
+BOARD_VENDORIMAGE_PARTITION_SIZE := 637483648
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
