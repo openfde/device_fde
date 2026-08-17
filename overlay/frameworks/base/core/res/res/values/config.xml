@@ -35,6 +35,7 @@
                 <item>com.boringdroid.systemui</item>
     </string-array>
     <bool name="config_single_volume">true</bool>
+    <bool name="config_safe_media_volume_enabled">false</bool>
 
     <!-- True to skip the fade animation on display off event -->
     <bool name="config_displayColorFadeDisabled">true</bool>
