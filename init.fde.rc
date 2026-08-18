@@ -5,3 +5,5 @@
 on post-fs-data
     trigger nonencrypted
     exec - system system -- /vendor/bin/ipconfigstore
+    mkdir /tmp/.X11-unix 0777
+    mount none /tmpx11 /tmp/.X11-unix bind
