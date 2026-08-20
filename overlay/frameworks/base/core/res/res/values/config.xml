@@ -38,4 +38,5 @@
 	    <item>org.openfde.platform.internal.OpenfdeService</item>
     </string-array>
     <bool name="config_single_volume">true</bool>
+    <bool name="config_safe_media_volume_enabled">false</bool>
 </resources>
