@@ -250,6 +250,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy \
 
+#gps
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gps=openfde
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-service \
+    android.hardware.gnss@1.0-impl \
+    gps.openfde
+
 
 $(call inherit-product, build/target/product/core_minimal.mk)
 PRODUCT_SYSTEM_SERVER_JARS += org.openfde.platform

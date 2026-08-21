@@ -1,3 +1,4 @@
 import /vendor/openfde.prop
 ro.com.android.media.swcodec.ion.heapmask=1
+persist.fde.gnss=$GPGGA,,28.228304,N,112.938882,E,,,,58,M
 #last
