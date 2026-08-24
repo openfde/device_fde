@@ -165,12 +165,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.gralloc=gbm \
-    ro.hardware.egl=mesa \
-    ro.hardware.hwcomposer=openfde
-
-
 endif
 
 PRODUCT_PACKAGES += \
