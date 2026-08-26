@@ -177,7 +177,6 @@ PRODUCT_PACKAGES += \
     vndservicemanager \
     hwservicemanager \
     screenrecord \
-    ipconfigstore \
     hwcomposer.openfde \
     org.openfde.platform \
 
