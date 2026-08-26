@@ -165,6 +165,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gralloc=gbm \
+    ro.hardware.egl=mesa \
+    ro.hardware.hwcomposer=openfde
+
+
 endif
 
 PRODUCT_PACKAGES += \
@@ -269,4 +275,3 @@ $(call inherit-product-if-exists, external/roboto-fonts/fonts.mk)
 $(call inherit-product-if-exists, external/roboto-flex-fonts/fonts.mk)
 $(call inherit-product-if-exists, external/roboto-mono/fonts.mk)
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, $(LOCAL_PATH)/../ftg340/prebuilts.mk)
