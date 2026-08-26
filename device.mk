@@ -87,6 +87,7 @@ PRODUCT_PACKAGES += \
     pand \
     power.default \
     sdptool \
+    VpnDialogs \
     vibrator.default
 
 
