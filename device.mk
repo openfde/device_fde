@@ -173,6 +173,7 @@ PRODUCT_PACKAGES += \
     hwservicemanager \
     screenrecord \
     hwcomposer.openfde \
+    hwcomposer.x11 \
     org.openfde.platform \
 
 
