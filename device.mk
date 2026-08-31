@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
     FdeSystemUI \
     ExternalStorageProvider \
     FdeGallery \
+    FdeTaskbar \
 
 
 PRODUCT_COPY_FILES += \
