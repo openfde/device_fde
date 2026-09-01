@@ -63,6 +63,7 @@ PRODUCT_PACKAGES += \
     Settings \
     SystemUI \
     DocumentsUI \
+    WallpaperPicker2 \
     Camera2 \
     Calendar \
     DeskClock \
@@ -125,6 +126,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.alarm_alert=Alarm_Classic.ogg \
     ro.config.ringtone=Ring_Synth_04.ogg \
     ro.config.notification_sound=pixiedust.ogg \
+    persist.settings.large_screen_opt.enabled=false \
 
 
 
