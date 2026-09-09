@@ -19,25 +19,6 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # DISABLE_RILD_OEM_HOOK := true
 
-# hybris
-PRODUCT_SOONG_NAMESPACES += \
-    external/fde-hybris/ \
-    external/glibc-adapter/
-
-PRODUCT_PACKAGES += \
-    libEGL_proxy \
-    libGLESv2_proxy \
-    libGLESv1_CM_proxy \
-    libglibc-adapter \
-    test-glibc-adapter \
-    libGLESv1_CM_swiftshader \
-    libGLESv2_swiftshader \
-    libEGL_swiftshader \
-    gralloc.gbm_proxy
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs_hybris.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_hybris.xml
-
 # Device modules
 PRODUCT_PACKAGES += \
     vulkan.ranchu \
