@@ -101,7 +101,34 @@ PRODUCT_PACKAGES += \
     hwcomposer.openfde \
     hwcomposer.x11 \
     android.hardware.health-service.example
-    
+
+# hybris
+PRODUCT_SOONG_NAMESPACES += \
+    external/fde-hybris/ \
+    external/glibc-adapter/
+
+PRODUCT_PACKAGES += \
+    libEGL_proxy \
+    libGLESv2_proxy \
+    libGLESv1_CM_proxy \
+    libglibc-adapter \
+    gralloc.gbm_proxy \
+    run-samples \
+    egl-test \
+    test-glibc-adapter
+
+ifeq ($(TARGET_SUPPORTS_32_BIT_APPS),true)
+PRODUCT_PACKAGES += \
+    libGLESv1_CM_swiftshader \
+    libGLESv2_swiftshader \
+    libEGL_swiftshader \
+    libGLESv1_CM_proxy_symlink \
+    libGLESv2_proxy_symlink \
+    libEGL_proxy_symlink
+endif
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_codecs_hybris.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_hybris.xml
 
 ifneq ($(TARGET_USE_MESA),false)
 PRODUCT_PACKAGES += \
