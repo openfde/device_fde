@@ -9,6 +9,7 @@
     <package packagename="com.kuaishou.nebula" main="HomeActivity" />
     <package packagename="ctrip.android.view" main="CtripHomeActivity" />
     <package packagename="com.Qunar" main="MainActivity" />
-    <package packagename="com.tencent.mm" main="LauncherUI" />
+    <package packagename="com.tencent.mm" main="LauncherUI"
+             exclude="LoginSelectUI" pauseLeft="true" />
     <package packagename="com.lite.ceclanxin" main="MainFrameActivity" />
 </packages>

@@ -248,6 +248,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy \
 
+# Parallel world (magic window): package -> main activity config read by ActivityTaskSupervisor.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/magic_config.xml:system/magicwindow_config/magic_config.xml
+
 #gps
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gps=openfde
