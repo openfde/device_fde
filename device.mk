@@ -256,6 +256,12 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
     gps.openfde
 
+#camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider-V1-external-service
+
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 $(call inherit-product, build/target/product/core_minimal.mk)
 PRODUCT_SYSTEM_SERVER_JARS += org.openfde.platform
