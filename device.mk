@@ -263,6 +263,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
+#light
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.example
+
 $(call inherit-product, build/target/product/core_minimal.mk)
 PRODUCT_SYSTEM_SERVER_JARS += org.openfde.platform
 $(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
