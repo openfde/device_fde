@@ -267,6 +267,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.example
 
+OVERRIDE_ENABLE_UFFD_GC = false
+OVERRIDE_PRODUCT_COMPRESSED_APEX = false
+
 $(call inherit-product, build/target/product/core_minimal.mk)
 PRODUCT_SYSTEM_SERVER_JARS += org.openfde.platform
 $(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
