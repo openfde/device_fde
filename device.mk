@@ -95,6 +95,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FdeSystemUI \
     SettingsIntelligence \
+    FDECuratedApps \
+    FDELinuxAppLauncher \
     ExternalStorageProvider \
     FdeGallery \
     FdeTaskbar \
