@@ -100,6 +100,7 @@ PRODUCT_PACKAGES += \
     ExternalStorageProvider \
     FdeGallery \
     FdeTaskbar \
+    TaskManager \
 
 
 PRODUCT_COPY_FILES += \
