@@ -120,6 +120,12 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=V
+# 关掉 AOSP 的 outbound 事件校验（InputTransport::verifyEvents()）：
+# 全局 log.tag=V 会让 log.tag.InputTransportVerifyEvents 的 DEBUG 探测变成可打印，
+# 从而把该校验打开；一旦注入的事件流不一致（App 用 dispatcher 注入触摸时很容易发生），
+# InputDispatcher 会 LOG(FATAL) 直接打死 system_server，导致整个 framework 重启。
+# tag 级设置会覆盖全局 log.tag=V，让校验回到"仅日志"的默认行为。
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag.InputTransportVerifyEvents=I
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
