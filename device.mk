@@ -92,9 +92,12 @@ PRODUCT_PACKAGES += \
     vibrator.default
 
 
+# FdeGallery is provided by packages/apps/FdeGallery; the prebuilt in fde_gallery is only used
+# when that source app is not part of the tree (see fde_gallery/Android.mk).
 PRODUCT_PACKAGES += \
     FdeSystemUI \
     ExternalStorageProvider \
+    FdeGallery \
     FdeTaskbar \
 
 
