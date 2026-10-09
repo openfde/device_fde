@@ -273,6 +273,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.example
 
+#sensors
+PRODUCT_PACKAGES += \
+    sensors.dynamic_sensor_hal \
+    android.hardware.sensors-service.multihal \
+    sensors.usf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
 OVERRIDE_ENABLE_UFFD_GC = false
 OVERRIDE_PRODUCT_COMPRESSED_APEX = false
 
