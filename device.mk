@@ -138,12 +138,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 ifneq ($(TARGET_USE_MESA),false)
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.2-service-ffmpeg
 
-#PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     media.sf.hwaccel=1 \
-    debug.ffmpeg-codec2.rank=0 \
     debug.ffmpeg-codec2.hwaccel.drm=1 \
     debug.ffmpeg-codec2.pixel_format=RGBX_8888
 
@@ -253,6 +252,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy \
+    $(LOCAL_PATH)/configs/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/android.hardware.media.c2@1.2-ffmpeg-extended.policy
 
 #gps
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -25,7 +25,8 @@ BOARD_MESA3D_BUILD_LIBGBM := true
 BOARD_MESA3D_GALLIUM_DRIVERS := r300 r600 radeonsi nouveau virgl svga v3d vc4 freedreno \
                                     etnaviv tegra lima panfrost llvmpipe softpipe zink asahi rocket
 BOARD_MESA3D_VULKAN_DRIVERS := amd swrast panfrost broadcom freedreno virtio asahi
-#BOARD_MESA3D_GALLIUM_VA := true
+BOARD_MESA3D_GALLIUM_VA := true
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/openfde/fde/framework_compatibility_matrix.xml
 endif
 
 BOARD_ROOT_EXTRA_FOLDERS := odm_extra vendor_extra mnt_extra run var volumes sockets
