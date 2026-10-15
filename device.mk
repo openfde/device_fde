@@ -272,6 +272,10 @@ PRODUCT_COPY_FILES += \
 #light
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.example
+    
+    # Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+PRODUCT_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay_common $(PRODUCT_PACKAGE_OVERLAYS)
 
 OVERRIDE_ENABLE_UFFD_GC = false
 OVERRIDE_PRODUCT_COMPRESSED_APEX = false
