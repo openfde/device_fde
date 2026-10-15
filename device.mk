@@ -123,9 +123,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc \
     $(LOCAL_PATH)/openfde.prop:$(TARGET_COPY_OUT_VENDOR)/openfde.prop \
 
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=V
-
+ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
+endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown \
