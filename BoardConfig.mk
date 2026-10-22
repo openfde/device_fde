@@ -29,5 +29,5 @@ BOARD_MESA3D_GALLIUM_VA := true
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/openfde/fde/framework_compatibility_matrix.xml
 endif
 
-BOARD_ROOT_EXTRA_FOLDERS := odm_extra vendor_extra mnt_extra run var volumes sockets
+BOARD_ROOT_EXTRA_FOLDERS := odm_extra vendor_extra mnt_extra run var volumes sockets configs
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/openfde/fde/configs/sepolicy/private
