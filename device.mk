@@ -79,6 +79,7 @@ PRODUCT_PACKAGES += \
     WallpaperPicker2 \
     Camera2 \
     Calendar \
+    CalendarProvider \
     DeskClock \
     Launcher3QuickStep \
     TelephonyProvider \
