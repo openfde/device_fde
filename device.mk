@@ -102,6 +102,7 @@ PRODUCT_PACKAGES += \
     FdeTaskbar \
     TaskManager \
 
+PRODUCT_PACKAGES += openfde_display_test
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fde_systemui/privapp-permissions-fde-systemui.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-fde-systemui.xml

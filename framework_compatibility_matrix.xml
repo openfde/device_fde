@@ -8,4 +8,13 @@
             <instance>ffmpeg</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.openfde.display</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IOpenfdeDisplay</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
