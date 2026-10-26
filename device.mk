@@ -12,6 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+MOCK_PRODUCT_BRAND := google
+MOCK_TARGET_PRODUCT := tangorpro
+MOCK_TARGET_DEVICE := tangorpro
+MOCK_PRODUCT_SYSTEM_BRAND := google
+MOCK_PRODUCT_SYSTEM_DEVICE := tangorpro
+MOCK_PRODUCT_SYSTEM_MANUFACTURER := Android
+MOCK_PRODUCT_SYSTEM_MODEL := Pixel Tablet
+MOCK_PRODUCT_SYSTEM_NAME := tangorpro
+MOCK_PRODUCT_MANUFACTURER := Google
+MOCK_PRODUCT_MODEL := Pixel Tablet
+MOCK_TARGET_BOARD_PLATFORM := gs201
+MOCK_TARGET_BOOTLOADER_BOARD_NAME := tangorpro
+
 
 PRODUCT_SOONG_NAMESPACES += device/openfde/fde/ipconfigstore
 
