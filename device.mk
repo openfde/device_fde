@@ -115,6 +115,7 @@ PRODUCT_PACKAGES += \
     FdeGallery \
     FdeTaskbar \
     TaskManager \
+    LineageSetupWizard \
 
 
 PRODUCT_COPY_FILES += \
