@@ -163,6 +163,10 @@ PRODUCT_PACKAGES += \
     android.hidl.allocator@1.0-service \
     android.hardware.graphics.mapper@2.0-impl-2.1
 
+PRODUCT_PACKAGES += \
+    vendor.openfde.display-service \
+    vendor.openfde.display-ndk \
+    vendor.openfde.display-java
 
 PRODUCT_PACKAGES += \
     vulkan.radeon \
