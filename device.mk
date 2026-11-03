@@ -115,6 +115,7 @@ PRODUCT_PACKAGES += \
     FdeGallery \
     FdeTaskbar \
     TaskManager \
+    FdeAiAgent \
     LineageSetupWizard \
 
 
