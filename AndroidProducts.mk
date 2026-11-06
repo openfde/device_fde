@@ -15,9 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    fde_arm64:$(LOCAL_DIR)/fde_arm64/fde_arm64.mk
+    fde_arm64:$(LOCAL_DIR)/fde_arm64/fde_arm64.mk \
+    fde_arm64_only:$(LOCAL_DIR)/fde_arm64_only/fde_arm64_only.mk 
 
 COMMON_LUNCH_CHOICES := \
     fde_arm64-cp2a-user \
     fde_arm64-cp2a-userdebug \
-    fde_arm64-cp2a-eng
+    fde_arm64-cp2a-eng \
+    fde_arm64_only-cp2a-user \
+    fde_arm64_only-cp2a-userdebug \
+    fde_arm64_only-cp2a-eng
