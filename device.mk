@@ -139,6 +139,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.fde.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fde.rc \
     $(LOCAL_PATH)/openfde.prop:$(TARGET_COPY_OUT_VENDOR)/openfde.prop \
 
+# FDE: static platform compat overrides.
+# Loaded by CompatConfig from /product/etc/appcompat/compat_framework_overrides.xml.
+# Currently used to sandbox legacy Display APIs to the app window for apps that
+# mis-size dialogs/popups in desktop/freeform windows (change 185004937).
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/appcompat/compat_framework_overrides.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/appcompat/compat_framework_overrides.xml
+
 ifneq (,$(filter user,$(TARGET_BUILD_VARIANT)))
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += log.tag=W
 endif
