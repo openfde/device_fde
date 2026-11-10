@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  FDE: static platform compat overrides.
+
+  Keep this file in /product/etc/appcompat/compat_framework_overrides.xml
+  (see frameworks/base/services/core/java/com/android/server/compat/CompatConfig.java).
+  The overrides are loaded on every boot and survive factory reset.
+
+  Change 185004937 is ActivityInfo.ALWAYS_SANDBOX_DISPLAY_APIS: legacy
+  Display APIs (getRealSize/getRealMetrics/getMaximumWindowMetrics) report
+  the activity window bounds instead of the full display. This prevents
+  phone apps from sizing dialogs/popups to the 1920x1080 desktop display
+  when they run in a small freeform task.
+
+  //test legacy display API
+  adb shell am compat enable 185004937 ctrip.android.view
+-->
+<overrides>
+    <change-overrides changeId="185004937">
+        <validated>
+            <override-value
+                packageName="com.tencent.android.qqdownloader"
+                enabled="true" />
+            <override-value
+                packageName="ctrip.android.view"
+                enabled="true" />
+        </validated>
+        <raw>
+            <raw-override-value
+                packageName="com.tencent.android.qqdownloader"
+                minVersionCode="-9223372036854775808"
+                maxVersionCode="9223372036854775807"
+                enabled="true" />
+            <raw-override-value
+                packageName="ctrip.android.view"
+                minVersionCode="-9223372036854775808"
+                maxVersionCode="9223372036854775807"
+                enabled="true" />
+        </raw>
+    </change-overrides>
+</overrides>
