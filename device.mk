@@ -190,6 +190,10 @@ PRODUCT_PACKAGES += \
     vendor.openfde.display-ndk \
     vendor.openfde.display-java
 
+# FDE: Linux 程序启动服务（binder 替代 HTTP -> fde_ctrl）
+PRODUCT_PACKAGES += \
+    vendor.openfde.launcher-service
+
 PRODUCT_PACKAGES += \
     vulkan.radeon \
     vulkan.freedreno \
