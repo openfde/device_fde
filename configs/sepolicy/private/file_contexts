@@ -8,3 +8,7 @@
 /configs                  u:object_r:rootfs:s0
 /sockets                  u:object_r:rootfs:s0
 /tmpx11             u:object_r:shell_data_file:s0
+/usr                      u:object_r:rootfs:s0
+/hybris                   u:object_r:rootfs:s0
+/lib                      u:object_r:rootfs:s0
+/lib64                    u:object_r:rootfs:s0
